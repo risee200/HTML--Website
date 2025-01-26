@@ -1,0 +1,219 @@
+         <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Beauty </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff9fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #FFB6C1;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+
+        .section h2 {
+            color: #FF69B4;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #FF69B4;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #ffe5ec;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product h3 {
+            color: #FF69B4;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .product p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: #FF1493;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .contact {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #25D366;
+            color: white !important;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background: #FFB6C1;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .product {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1> RiseBeauty </h1>
+        <p>Your Premium Beauty Destination</p>
+    </header>
+
+    <div class="container">
+        <!-- Beauty Products Section -->
+        <div class="section">
+            <h2>Skincare Essentials</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW9pc3R1cml6ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Hydrating Moisturizer">
+                    <div class="product-content">
+                        <h3>Hydro Boost Moisturizer</h3>
+                        <p>24-hour hydration with hyaluronic acid</p>
+                        <p class="price">$29.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2VydW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Vitamin C Serum">
+                    <div class="product-content">
+                        <h3>Vitamin C Brightening Serum</h3>
+                        <p>Anti-aging & brightening formula</p>
+                        <p class="price">$49.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intimate Care Section -->
+        <div class="section">
+            <h2>Intimate Wellness</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1591348122449-02525d7035b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFzc2FnZSUyMG9pbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Sensual Massage Oil">
+                    <div class="product-content">
+                        <h3>Warming Massage Oil</h3>
+                        <p>100% natural aromatic blend</p>
+                        <p class="price">$34.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1612452017254-85846856dcef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bHVicmljYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Intimate Lubricant">
+                    <div class="product-content">
+                        <h3>pH-Balanced Lubricant</h3>
+                        <p>Water-based & gynecologist-tested</p>
+                        <p class="price">$24.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Contact -->
+        <div class="contact">
+            <a href="https://wa.me/201142091649" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Chat with Us
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rise Haven. All rights reserved.</p>
+    </footer>
+</body>
+</html>
