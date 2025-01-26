@@ -1,133 +1,164 @@
-         <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise Beauty </title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Rise Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff9fb;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f4f4f4;
         }
 
         header {
             background-color: #FFB6C1;
-            color: #fff;
-            padding: 2rem;
+            color: white;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 3rem;
+            animation: bounceIn 1s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin: 1rem 0 0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         .container {
-            max-width: 1200px;
+            width: 90%;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 3rem 0;
         }
 
         .section {
-            margin: 3rem 0;
-            padding: 2rem 0;
+            margin-bottom: 3rem;
         }
 
         .section h2 {
-            color: #FF69B4;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: #FF69B4;
+            display: inline-block;
+            animation: slideInLeft 1s ease-out;
         }
 
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            padding: 1rem;
+            margin-top: 2rem;
         }
 
         .product {
-            background: white;
-            border-radius: 12px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .product.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .product:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product:active {
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .product img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 2px solid #ffe5ec;
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
         }
 
-        .product-content {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .product h3 {
-            color: #FF69B4;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .product p {
-            color: #666;
-            font-size: 0.9rem;
+        .product-content h3 {
+            font-size: 1.6rem;
             margin-bottom: 1rem;
         }
 
+        .product-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
         .price {
-            color: #FF1493;
-            font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #FFB6C1;
+            transition: all 0.3s;
+        }
+
+        .product:hover .price {
+            color: #ff69b4;
+            transform: scale(1.1);
         }
 
         .contact {
             text-align: center;
-            margin: 4rem 0 2rem;
+            margin-top: 3rem;
         }
 
         .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            background: #25D366;
-            color: white !important;
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
             padding: 1rem 2rem;
-            border-radius: 30px;
+            border-radius: 50px;
+            font-size: 1.3rem;
             text-decoration: none;
-            transition: background 0.3s ease;
+            transition: all 0.3s;
+            animation: pulse 1.5s infinite;
+            position: relative;
+            overflow: hidden;
         }
 
         .whatsapp-btn:hover {
-            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.4);
         }
 
-        .whatsapp-btn i {
-            margin-right: 0.8rem;
-            font-size: 1.2rem;
+        .whatsapp-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .whatsapp-btn:hover::after {
+            left: 120%;
         }
 
         footer {
@@ -136,74 +167,116 @@
             text-align: center;
             padding: 1.5rem;
             margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out;
         }
+
+        /* Animations */
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .product:nth-child(1) { animation-delay: 0.2s; }
+        .product:nth-child(2) { animation-delay: 0.4s; }
+        .product:nth-child(3) { animation-delay: 0.6s; }
+        .product:nth-child(4) { animation-delay: 0.8s; }
+        .product:nth-child(5) { animation-delay: 1s; }
 
         @media (max-width: 768px) {
             .products {
                 grid-template-columns: 1fr;
             }
-            
             .product {
                 margin: 0 1rem;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1> RiseBeauty </h1>
-        <p>Your Premium Beauty Destination</p>
+        <h1>Rise Care</h1>
+        <p>Your Premium Health & Beauty Solution</p>
     </header>
 
     <div class="container">
-        <!-- Beauty Products Section -->
         <div class="section">
-            <h2>Skincare Essentials</h2>
+            <h2>Skin Care Essentials</h2>
             <div class="products">
                 <div class="product">
-                    <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW9pc3R1cml6ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Hydrating Moisturizer">
+                    <img src="https://ucarecdn.com/d563a109-98c5-4dff-a9ce-2a363bb0b4ed/-/preview/1000x1000/" alt="Curve Era">
                     <div class="product-content">
-                        <h3>Hydro Boost Moisturizer</h3>
-                        <p>24-hour hydration with hyaluronic acid</p>
-                        <p class="price">$29.99</p>
+                        <h3>Curve Era</h3>
+                        <p>A specially formulated weight gain supplement designed to help increase body mass.</p> 
+                        <p class="price">150 LE</p>
                     </div>
                 </div>
+                
                 <div class="product">
-                    <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2VydW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Vitamin C Serum">
+                    <img src="https://ucarecdn.com/2214e3ac-0e6f-42d7-b384-53e613ac6b55/-/preview/1000x1000/" alt="Clear Era">
                     <div class="product-content">
-                        <h3>Vitamin C Brightening Serum</h3>
-                        <p>Anti-aging & brightening formula</p>
-                        <p class="price">$49.99</p>
+                        <h3>Clear Era</h3>
+                        <p>Premium skin-brightening cream that diminishes dark spots and boosts natural radiance.</p>
+                        <p class="price">150 LE</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://ucarecdn.com/fb705dd3-b314-4113-9c1e-76c71dc92eb2/-/preview/1000x1000/" alt="White Era">
+                    <div class="product-content">
+                        <h3>White Era</h3>
+                        <p>Luxurious brightening cream to reduce dark spots and enhance natural glow.</p>
+                        <p class="price">150 LE</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Intimate Care Section -->
         <div class="section">
-            <h2>Intimate Wellness</h2>
+            <h2>Sexual Products</h2>
             <div class="products">
                 <div class="product">
-                    <img src="https://images.unsplash.com/photo-1591348122449-02525d7035b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFzc2FnZSUyMG9pbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Sensual Massage Oil">
+                    <img src="https://ucarecdn.com/e200f889-33c2-42f4-a9b6-df904f38f796/-/preview/1000x1000/" alt="Rise X">
                     <div class="product-content">
-                        <h3>Warming Massage Oil</h3>
-                        <p>100% natural aromatic blend</p>
-                        <p class="price">$34.99</p>
+                        <h3>Rise X</h3>
+                        <p>Formulated to boost vitality and enhance male performance with lasting energy.</p>
+                        <p class="price">50 LE</p>
                     </div>
                 </div>
+
                 <div class="product">
-                    <img src="https://images.unsplash.com/photo-1612452017254-85846856dcef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bHVicmljYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Intimate Lubricant">
+                    <img src="https://ucarecdn.com/88524abd-e1da-4e95-98bf-690b12ab89b1/-/preview/1000x1000/" alt="Rise Delay Honey">
                     <div class="product-content">
-                        <h3>pH-Balanced Lubricant</h3>
-                        <p>Water-based & gynecologist-tested</p>
-                        <p class="price">$24.99</p>
+                        <h3>Rise Delay Honey</h3>
+                        <p>Specially formulated to support vitality and enhance male performance.</p>
+                        <p class="price">50 LE</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- WhatsApp Contact -->
         <div class="contact">
             <a href="https://wa.me/201142091649" class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
@@ -213,7 +286,24 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Rise Haven. All rights reserved.</p>
+        <p>&copy; 2025 Rise Care. All rights reserved</p>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { 
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        document.querySelectorAll('.product').forEach(product => {
+            observer.observe(product);
+        });
+    </script>
 </body>
 </html>
